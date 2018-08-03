@@ -44,7 +44,7 @@ export const fetchCat = () => dispatch => {
 }
 
 
-export const deleteCat = () => dispatch => {
+export const adoptCat = () => dispatch => {
   dispatch(deleteCatRequest())
   fetch(`${API_BASE_URL}/api/cat`, {
     method: 'DELETE',
@@ -60,5 +60,6 @@ export const deleteCat = () => dispatch => {
   })
   .then(res => res.sendStatus(204))
   .then(data => dispatch(deleteCatSuccess(data)))
+  .then(dispatch(fetchCat()))
   .catch(err => dispatch(deleteCatError(err)))
 }

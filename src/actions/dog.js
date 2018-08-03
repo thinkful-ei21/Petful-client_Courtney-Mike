@@ -42,7 +42,7 @@ export const fetchDog = () => dispatch => {
     .catch(err => dispatch(fetchDogError(err)))
 }
 
-export const deleteDog = () => dispatch => {
+export const adoptDog = () => dispatch => {
   dispatch(deleteDogRequest())
   fetch(`${API_BASE_URL}/api/dog`, {
     method: 'DELETE',
@@ -58,5 +58,6 @@ export const deleteDog = () => dispatch => {
   })
   .then(res => res.sendStatus(204))
   .then(data => dispatch(deleteDogSuccess(data)))
+  .then(dispatch(fetchDog()))
   .catch(err => dispatch(deleteDogError(err)))
 }
