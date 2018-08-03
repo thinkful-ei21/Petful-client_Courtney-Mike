@@ -45,8 +45,8 @@ const catReducer = (state=initialState, action) => {
   else if (action.type === DELETE_CAT_SUCCESS) {
     return {
       ...state,
-      cat: action.cat,
-      loading: false
+      loading: false,
+      error: null
     };
   }
   else if (action.type === DELETE_CAT_ERROR) {

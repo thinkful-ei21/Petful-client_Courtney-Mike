@@ -9,8 +9,6 @@ export class Dashboard extends Component {
   componentDidMount() {
     this.fetchDog();
     this.fetchCat();
-    this.adoptDog();
-    this.adoptCat();
   }
 
   adoptDog() {
@@ -39,7 +37,7 @@ export class Dashboard extends Component {
         <Pet
           petToAdopt={this.props.dog}
           onAdopt={this.adoptDog.bind(this)}
-        /> 
+        />
       </div>
     );
   }

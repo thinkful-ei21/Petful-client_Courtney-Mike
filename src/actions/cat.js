@@ -39,8 +39,6 @@ export const fetchCat = () => dispatch => {
   dispatch(fetchCatRequest());
   fetch('http://localhost:8080/api/cat/')
     .then(res => res.json())
-    .then(data => {
-      return data})
     .then(data => dispatch(fetchCatSuccess(data)))
     .catch(err => dispatch(fetchCatError(err)))
 }
@@ -60,8 +58,7 @@ export const adoptCat = () => dispatch => {
     }
     return res;
   })
-  .then(res => res.sendStatus(204))
-  .then(data => dispatch(deleteCatSuccess(data)))
-  .then(dispatch(fetchCat()))
+  .then(res => dispatch(deleteCatSuccess()))
+  .then(res => dispatch(fetchCat()))
   .catch(err => dispatch(deleteCatError(err)))
 }

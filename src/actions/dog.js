@@ -56,8 +56,7 @@ export const adoptDog = () => dispatch => {
     }
     return res;
   })
-  .then(res => res.sendStatus(204))
   .then(data => dispatch(deleteDogSuccess(data)))
-  .then(dispatch(fetchDog()))
+  .then(res => dispatch(fetchDog()))
   .catch(err => dispatch(deleteDogError(err)))
 }
