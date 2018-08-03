@@ -27,8 +27,8 @@ class App extends Component {
     return (
       <div>
         <Dashboard
-          catToAdopt={cat}
-          dogToAdopt={dog}
+          cat={cat}
+          dog={dog}
         />
       </div>
 
